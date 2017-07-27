@@ -4,8 +4,8 @@ from matplotlib import pyplot as plt
 
 MIN_MATCH_COUNT = 10
 
-imgg1 = cv2.imread('boxd.jpg',0)          # queryImage
-imgg2 = cv2.imread('box3.jpg',0) # trainImage
+imgg1 = cv2.imread('2.jpg',0)          # queryImage
+imgg2 = cv2.imread('20170720_172229_HoloLens.jpg',0) # trainImage
 
 img1 = cv2.resize(imgg1, (0,0), fx=0.3, fy=0.3)
 img2 = cv2.resize(imgg2, (0,0), fx=0.3, fy=0.3)
@@ -56,6 +56,7 @@ draw_params = dict(matchColor = (0,255,0), # draw matches in green color
                    matchesMask = matchesMask, # draw only inliers
                    flags = 2)
 img3 = cv2.drawMatches(img1,kp1,img2,kp2,good,None,**draw_params)
-plt.imshow(img3, 'gray'),plt.show()
+# plt.imshow(img3, 'gray'),plt.show()
+plt.imshow(img3),plt.show()
 
 # cv2.waitKey()
