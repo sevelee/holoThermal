@@ -4,11 +4,14 @@ from matplotlib import pyplot as plt
 
 MIN_MATCH_COUNT = 10
 
-imgg1 = cv2.imread('2.jpg',0)          # queryImage
-imgg2 = cv2.imread('20170720_172229_HoloLens.jpg',0) # trainImage
+imgg1 = cv2.imread('2.tiff',0)          # queryImage
+imgg2 = cv2.imread('20170829_143315_HoloLens.jpg',0) # trainImage
 
-img1 = cv2.resize(imgg1, (0,0), fx=0.3, fy=0.3)
-img2 = cv2.resize(imgg2, (0,0), fx=0.3, fy=0.3)
+#img1 = cv2.resize(imgg1, (0,0), fx=0.3, fy=0.3)
+#img2 = cv2.resize(imgg2, (0,0), fx=0.3, fy=0.3)
+
+img1 = imgg1
+img2 = imgg2
 
 # Initiate SIFT detector
 sift = cv2.xfeatures2d.SIFT_create()
@@ -33,7 +36,7 @@ matches = flann.knnMatch(des1,des2,k=2)
 # store all the good matches as per Lowe's ratio test.
 good = []
 for m,n in matches:
-    if m.distance < 0.7*n.distance:
+   # if m.distance < 0.7*n.distance:
         good.append(m)
 
 print(len(good))
